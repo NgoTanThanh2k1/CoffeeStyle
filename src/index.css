@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 @theme {
-  --color-light-coffee: #c89f94;
+  --color-coffee-50: #e8d6d0;
+  --color-coffee-200: #c89f94;
+  --color-coffee-400: #a25f4b;
+  --color-coffee-600: #744838;
 }
 
 /* Thêm animation custom bằng CSS thuần */
@@ -18,11 +21,22 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* Tạo class tiện dụng dùng kèm Tailwind */
 .slide-down {
   animation: slideDown 1s ease-in-out;
 }
 
+.fadein {
+  animation: fadeIn 0.5s ease-in-out;
+}
 .karla {
   font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
@@ -33,7 +47,7 @@
 .ct-top-menu-item {
   @apply cursor-pointer py-1 hover:text-gray-800 relative 
     after:lg:absolute after:lg:bottom-0 after:lg:left-0 
-    after:lg:bg-light-coffee after:lg:h-0.5 after:lg:w-0 
+    after:lg:bg-coffee-200 after:lg:h-0.5 after:lg:w-0 
     hover:after:lg:w-full after:lg:transition-all after:lg:duration-300 after:lg:ease-in-out;
 }
 
@@ -52,4 +66,17 @@
 .ct-topmenu-expanded {
   @apply absolute top-10 z-50 w-full text-center bg-white;
   animation: slideDown 0.4s ease-in-out;
+}
+
+.ct-subheadline {
+  @apply flex justify-center items-center mb-24;
+}
+.ct-subheadline-deco-line {
+  @apply w-8 h-px bg-gray-200;
+}
+.ct-subheadline-lable {
+  @apply uppercase mx-4 tracking-widest text-gray-500 font-medium text-[12px] text-center;
+}
+.ct-button {
+  @apply text-center uppercase tracking-wider py-4 px-8 text-sm  font-semibold cursor-pointer hover:opacity-90;
 }
